@@ -1,104 +1,141 @@
+:root {
+  --bg-color: #f5f5f7;
+  --text-color: #222;
+  --accent-color: #1db954;
+  --card-bg: #fff;
+}
+
+body.dark {
+  --bg-color: #121212;
+  --text-color: #f5f5f5;
+  --card-bg: #1e1e1e;
+}
+
 body {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f7;
-    color: #333;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.4s, color 0.4s;
 }
 
 header {
-    background: #121212;
-    color: #fff;
-    padding: 15px 0;
-    text-align: center;
+  background: var(--card-bg);
+  color: var(--text-color);
+  padding: 15px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
 }
 
 nav h1 {
-    font-size: 1.5rem;
-    color: #fff;
+  font-size: 1.5rem;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
 nav a {
-    text-decoration: none;
-    color: #fff;
-    transition: color 0.3s;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.3s;
 }
 
 nav a:hover, .active {
-    color: #1db954;
+  color: var(--accent-color);
+}
+
+/* Dark mode toggle */
+.toggle-container {
+  position: relative;
+}
+.toggle-label {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.toggle-label span {
+  font-size: 1.2rem;
+}
+#theme-toggle {
+  display: none;
 }
 
 .intro {
-    text-align: center;
-    padding: 80px 20px;
+  text-align: center;
+  padding: 80px 20px;
 }
 
-.intro .profile-img {
-    width: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
+.profile-img {
+  width: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  transition: transform 0.4s;
 }
-
-.intro h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-}
-
-.intro span {
-    color: #1db954;
+.profile-img:hover {
+  transform: scale(1.05);
 }
 
 .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1db954;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
 }
-
 .btn:hover {
-    background-color: #159b44;
+  background-color: #159b44;
 }
 
 .projects {
-    padding: 60px 20px;
-    text-align: center;
+  padding: 60px 20px;
+  text-align: center;
 }
-
 .project-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 20px auto;
-    width: 80%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
 .project-card img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
 }
 
 footer {
-    background-color: #121212;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1.2s forwards;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
